@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import "./TypeRacer.css";
 
 const passages = [
-  "The quick brown fox jumps over the lazy dog.",
-  "React is a JavaScript library for building user interfaces.",
+  "The quick brown fox jumps over-. Why Thor is Crying?",
+  "I am going to molest John Bacolod all day everyday.",
   "To be or not to be, that is the question.",
   // Add more passages as needed
 ];
