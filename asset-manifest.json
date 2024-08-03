@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/React-Type-Racing-Game/static/css/main.eaccd354.css",
+    "main.js": "/React-Type-Racing-Game/static/js/main.ab8b1607.js",
+    "static/js/453.e64fc64f.chunk.js": "/React-Type-Racing-Game/static/js/453.e64fc64f.chunk.js",
+    "index.html": "/React-Type-Racing-Game/index.html",
+    "main.eaccd354.css.map": "/React-Type-Racing-Game/static/css/main.eaccd354.css.map",
+    "main.ab8b1607.js.map": "/React-Type-Racing-Game/static/js/main.ab8b1607.js.map",
+    "453.e64fc64f.chunk.js.map": "/React-Type-Racing-Game/static/js/453.e64fc64f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eaccd354.css",
+    "static/js/main.ab8b1607.js"
+  ]
+}
