@@ -1,21 +1,21 @@
-// src/TypeRacer.js
-import React, { useState, useEffect } from "react";
-import "./TypeRacer.css";
+import React, { useState, useEffect } from 'react';
+import './TypeRacer.css';
 
 const passages = [
-  "The quick brown fox jumps over-. Why Thor is Crying?",
-  "I am going to molest John Bacolod all day everyday.",
+  "The quick brown fox jumps over the lazy dog.",
+  "React is a JavaScript library for building user interfaces.",
   "To be or not to be, that is the question.",
-  // Add more passages as needed
+  "Life is like riding a bicycle. To keep your balance, you must keep moving.",
+  "In the end, we will remember not the words of our enemies, but the silence of our friends.",
+  // Add more sentences as needed
 ];
 
 const TypeRacer = () => {
-  const [text, setText] = useState("");
-  const [startTime, setStartTime] = useState(null);
-  const [endTime, setEndTime] = useState(null);
   const [passage, setPassage] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [isFinished, setIsFinished] = useState(false);
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
 
   useEffect(() => {
     const randomPassage = passages[Math.floor(Math.random() * passages.length)];
@@ -39,9 +39,9 @@ const TypeRacer = () => {
     const randomPassage = passages[Math.floor(Math.random() * passages.length)];
     setPassage(randomPassage);
     setInputValue("");
+    setIsFinished(false);
     setStartTime(null);
     setEndTime(null);
-    setIsFinished(false);
   };
 
   const calculateWPM = () => {
@@ -50,17 +50,33 @@ const TypeRacer = () => {
     return (wordsTyped / timeTaken).toFixed(2);
   };
 
+  const renderPassage = () => {
+    const inputChars = inputValue.split("");
+    return passage.split("").map((char, index) => {
+      let className = "";
+      if (index < inputChars.length) {
+        className = char === inputChars[index] ? "correct" : "incorrect";
+      }
+      return (
+        <span key={index} className={className}>
+          {char}
+        </span>
+      );
+    });
+  };
+
   return (
     <div className="type-racer">
       <h1>Type Racer</h1>
-      <p>{passage}</p>
+      <div className="passage">{renderPassage()}</div>
       <textarea
         value={inputValue}
         onChange={handleInputChange}
         disabled={isFinished}
+        placeholder="Start typing here..."
       />
       {isFinished && (
-        <div>
+        <div className="result">
           <p>Congratulations! You finished the race.</p>
           <p>Your WPM: {calculateWPM()}</p>
           <button onClick={handleRestart}>Restart</button>
